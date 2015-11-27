@@ -1,0 +1,17 @@
+---
+# defaults file for atlassian-confluence
+atlassian_confluence_version: CHANGEME
+
+atlassian_confluence_baseurl: https://www.atlassian.com/software/confluence/downloads/binary
+atlassian_confluence_basedir: /opt/atlassian
+atlassian_confluence_home: /srv/atlassian/confluence
+
+atlassian_confluence_user: confluence
+atlassian_confluence_uid: 10000
+atlassian_confluence_group: confluence
+atlassian_confluence_gid: 10000
+
+
+atlassian_confluence_server_xml: []
+
+atlassian_confluence_catalina_opts: []

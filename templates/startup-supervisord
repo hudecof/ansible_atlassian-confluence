@@ -1,0 +1,10 @@
+[program:confluence]
+command={{ atlassian_confluence_dir }}/bin/start-confluence.sh -fg
+numprocs=1
+process_name=%(program_name)s
+user={{ atlassian_confluence_user }}
+killasgroup=true
+stopasgroup=true
+stopsignal=INT
+startsecs=5
+stopwaitsecs=60
