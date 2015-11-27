@@ -99,8 +99,8 @@
     file: "{{ atlassian_confluence_dir }}/conf/server.xml"
     xpath: "{{ item.xpath }}"
     ensure: "{{ item.ensure|default('present') }}"
-    attribute: "{{ item.attribute|default('') }}"
-    value: "{{ item.value|default('') }}"
+    attribute: "{{ item.attribute|default(omit) }}"
+    value: "{{ item.value|default(omit) }}"
   with_items: atlassian_confluence_server_xml
   tags:
     - atlassian-confluence
