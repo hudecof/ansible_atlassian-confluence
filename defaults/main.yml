@@ -15,3 +15,10 @@ atlassian_confluence_gid: 10000
 atlassian_confluence_server_xml: []
 
 atlassian_confluence_catalina_opts: []
+
+
+# related to CrowdSSO
+atlassian_confluence_crowd: false
+atlassian_confluence_crowd_url: http://localhost:8095/crowd
+
+atlassian_confluence_crowd_properties: []

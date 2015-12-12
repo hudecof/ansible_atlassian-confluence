@@ -51,6 +51,8 @@ Role Variables
 
 `atlassian_confluence_catalina_opts` is the list of custom *CATALINA_OPTS* properties. At this moment you can't change the existing one ;(
 
+For *CrowdSSO* see `CrowdSSO.md`
+
 Dependencies
 ------------
 
