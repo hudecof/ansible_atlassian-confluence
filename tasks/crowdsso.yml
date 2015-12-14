@@ -44,6 +44,18 @@
   tags:
     - atlassian-confluence
 
+- name: change seraph-config.xml others
+  xml:
+    file: "{{ atlassian_confluence_dir }}/confluence/WEB-INF/classes/seraph-config.xml"
+    xpath: "{{ item.xpath }}"
+    attribute: "{{ item.attribute|default(omit) }}"
+    ensure: "{{ item.ensure|default('present') }}"
+    value: "{{ item.value|default(omit) }}"
+  with_items: atlassian_confluence_seraph_config
+  tags:
+    - atlassian-confluence
+
+
 - name: catalina enviroment settings for CrowdSSO (1)
   lineinfile:
     dest: "{{ atlassian_confluence_dir }}/bin/setenv.sh"

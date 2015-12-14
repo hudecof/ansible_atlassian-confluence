@@ -22,3 +22,5 @@ atlassian_confluence_crowd: false
 atlassian_confluence_crowd_url: http://localhost:8095/crowd
 
 atlassian_confluence_crowd_properties: []
+
+atlassian_confluence_seraph_config: []
