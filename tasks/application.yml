@@ -22,7 +22,7 @@
     - atlassian-confluence
 
 - name: create user
-  user: name="{{ atlassian_confluence_user }}" system=no createhome=no comment="Atlassian Confluence" group={{ atlassian_confluence_group }} home=/nonexistant shell=/bin/false state=present
+  user: name="{{ atlassian_confluence_user }}" uid={{ atlassian_confluence_uid }} system=no createhome=no comment="Atlassian Confluence" group={{ atlassian_confluence_group }} home=/nonexistant shell=/bin/false state=present
   tags:
     - atlassian-confluence
 
