@@ -1,5 +1,6 @@
 ---
 # defaults file for atlassian-confluence
+atlassian_confluence_packages: "{{ __atlassian_confluence_packages }}"
 atlassian_confluence_version: CHANGEME
 
 atlassian_confluence_baseurl: https://www.atlassian.com/software/confluence/downloads/binary

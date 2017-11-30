@@ -1,0 +1,7 @@
+---
+
+- name: set basic facts
+  set_fact:
+    download_url: "{{ atlassian_confluence_baseurl }}/atlassian-confluence-{{ atlassian_confluence_version }}.tar.gz"
+    download_tmp: "{{ atlassian_confluence_basedir }}/atlassian-confluence-{{ atlassian_confluence_version }}.tar.gz"
+    atlassian_confluence_dir: "{{ atlassian_confluence_basedir }}/atlassian-confluence-{{ atlassian_confluence_version }}"

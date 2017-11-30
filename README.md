@@ -19,7 +19,7 @@ I have my own role `hudecof.java` to do that.
 You could preffer another  *database* as me. So this is out of scope too.  
 
 The *tar.gz* version do not have startup script. I use `supervisord` to do this job.
-I will generate template for `supervisord` and `init.d` and put it into *instalation dorectory* directory.
+I will generate template for `supervisord` , `init.d` and `systemd` and put it into *instalation dorectory* directory.
 
 If you are updating, shutdown you old instance manually. This role do not handle this!.
 It will just setup your new instance with your customizations.

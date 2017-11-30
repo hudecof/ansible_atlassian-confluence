@@ -1,0 +1,4 @@
+---
+
+__atlassian_confluence_packages:
+  - {'name': 'python-lxml', 'state': 'present'}

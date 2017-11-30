@@ -1,6 +1,58 @@
 ---
 
-- include: application.yml
+- name: "common | set os specific variables"
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "os-{{ ansible_distribution }}.yml"
+    - "os-{{ ansible_os_family }}.yml"
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:packages
+    - atlassian-confluence:setup
+    - atlassian-confluence:install
+    - atlassian-confluence:config
+    - atlassian-confluence:crowd
 
-- include: crowdsso.yml
+
+- name: include package tasks
+  include: packages-{{ ansible_os_family }}.yml
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:packages
+
+- name: include facts tasks
+  include: facts-common.yml
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:setup
+    - atlassian-confluence:install
+    - atlassian-confluence:config
+    - atlassian-confluence:crowd
+
+- name: include setup tasks
+  include: setup-common.yml
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:setup
+
+- name: include install tasks
+  include: install-common.yml
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:install
+
+- name: include config tasks
+  include: config-common.yml
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:config
+
+- name: include crowdsso tasks
+  include: crowdsso-common.yml
   when: atlassian_confluence_crowd
+  tags:
+    - atlassian-confluence
+    - atlassian-confluence:crowd

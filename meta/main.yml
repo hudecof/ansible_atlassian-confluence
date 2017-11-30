@@ -1,11 +1,10 @@
 ---
 galaxy_info:
   author: Peter Hudec
-  description: Install / upgrade Atlasssian Conflunce 
+  description: Install / upgrade Atlasssian Conflunce
   company: CNC, a.s.
   license: BSD
-  min_ansible_version: 1.7
-  
+  min_ansible_version: 2.1
   platforms:
   - name: EL
     versions:
@@ -18,22 +17,8 @@ galaxy_info:
   - name: Debian
     versions:
     - jessie
-    - wheezy
-
+    - stretch
   categories:
-  #- cloud
-  #- cloud:ec2
-  #- cloud:gce
-  #- cloud:rax
-  #- clustering
-  #- database
-  #- database:nosql
-  #- database:sql
   - development
-  #- monitoring
-  #- networking
-  #- packaging
-  #- system
-  #- web
-dependencies: 
- - cmprescott.xml
+dependencies:
+  - cmprescott.xml

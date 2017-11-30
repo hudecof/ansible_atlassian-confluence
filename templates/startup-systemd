@@ -1,0 +1,13 @@
+[Unit]
+Description=Confluence
+After=network.target
+
+[Service]
+Type=forking
+User={{ atlassian_confluence_user }}
+ExecStart={{ atlassian_confluence_dir }}/bin/start-confluence.sh
+ExecStop={{ atlassian_confluence_dir }}/bin/stop-confluence.sh
+PIDFile={{ atlassian_confluence_dir }}/work/catalina.pid
+
+[Install]
+WantedBy=multi-user.target

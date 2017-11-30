@@ -1,0 +1,45 @@
+---
+
+- name: set confluence.home variable
+  lineinfile:
+    dest: "{{ atlassian_confluence_dir }}/confluence/WEB-INF/classes/confluence-init.properties"
+    regexp: "^\\s*confluence.home\\s*="
+    insertafter: EOF
+    line: "confluence.home = {{ atlassian_confluence_home }}"
+    state: present
+
+- name: change server.xml
+  xml:
+    file: "{{ atlassian_confluence_dir }}/conf/server.xml"
+    xpath: "{{ xml.xpath }}"
+    ensure: "{{ xml.ensure|default('present') }}"
+    attribute: "{{ xml.attribute|default(omit) }}"
+    value: "{{ xml.value|default(omit) }}"
+  with_items: "{{ atlassian_confluence_server_xml }}"
+  loop_control:
+    loop_var: xml
+
+- name: catalina enviroment settings (1)
+  lineinfile:
+    dest: "{{ atlassian_confluence_dir }}/bin/setenv.sh"
+    regexp: '^CATALINA_OPTS_ANSIBLE='
+    line: 'CATALINA_OPTS_ANSIBLE="{{ atlassian_confluence_catalina_opts|join(" ")}}"'
+    insertbefore: '^CATALINA_OPTS'
+
+- name: catalina enviroment settings (2)
+  lineinfile:
+    dest: "{{ atlassian_confluence_dir }}/bin/setenv.sh"
+    regexp: '^CATALINA_OPTS="\$\{CATALINA_OPTS_ANSIBLE\} '
+    line: 'CATALINA_OPTS="${CATALINA_OPTS_ANSIBLE} ${CATALINA_OPTS}"'
+    insertbefore: '^export CATALINA_OPTS'
+
+- name: create template startup sctipts
+  template:
+    src: "{{ script }}"
+    dest: "{{ atlassian_confluence_dir }}/{{ script }}"
+  with_items:
+    - startup-init.d
+    - startup-supervisord
+    - startup-systemd
+  loop_control:
+    loop_var: script
