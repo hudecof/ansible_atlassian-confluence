@@ -17,14 +17,14 @@ I have my own role `hudecof.java` to do that.
 You could preffer another  *database* as me. So this is out of scope too.  
 
 The *tar.gz* version do not have startup script. I use `supervisord` to do this job.
-I will generate template for `supervisord` , `init.d` and `systemd` and put it into *instalation dorectory* directory.
+I will generate template for `supervisord` , `init.d` and `systemd` and put it into *installation directory*.
 
 If you are updating, shutdown you old instance manually. This role do not handle this!.
 It will just setup your new instance with your customizations.
 
 ## Role Variables
 
-`atlassian_confluence_version` is the verion you want to install. This is the only one varialble you need to change, the others are optional.
+`atlassian_confluence_version` is the verion you want to install. This is the only one variable you need to change, the others are optional.
 
 `atlassian_confluence_baseurl` is the URL where you can find the *tar.gz* files. If you have your own mirror, change it.
 
@@ -34,7 +34,7 @@ It will just setup your new instance with your customizations.
 
 `atlassian_confluence_user`, `atlassian_confluence_uid`, `atlassian_confluence_group`, `atlassian_confluence_gid` are variables to setup dedicated user to run the instance 
 
-`atlassian_confluence_server_xml` is list of changes to `server.xml` It ueses XPath to edit/add/remoce exiting properties.
+`atlassian_confluence_server_xml` is list of changes to `server.xml` It uses XPath to edit/add/remove exiting properties.
 
     atlassian_confluence_server_xml:
     - xpath: /Server/Service/Connector
@@ -52,7 +52,7 @@ For *CrowdSSO* see `CrowdSSO.md`
 
 ## Dependencies
 
-This role depedns on the `cmprescott.xml` role/library.
+This role depends on the `cmprescott.xml` role/library.
 
 ## Example Playbook
 
