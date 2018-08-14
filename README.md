@@ -1,10 +1,8 @@
-Role Name
-=========
+# Role Name
 
 Role tp help install or update the Atlassian Confluence.
 
-Requirements
-------------
+## Requirements
 
 For running Atlassian Confluence you need a little bit more
 
@@ -24,10 +22,9 @@ I will generate template for `supervisord` , `init.d` and `systemd` and put it i
 If you are updating, shutdown you old instance manually. This role do not handle this!.
 It will just setup your new instance with your customizations.
 
-Role Variables
---------------
+## Role Variables
 
-`atlassian_confluence_version` is the verion you want to install. Thi sis the only one varialble you need to change, the others are optional.
+`atlassian_confluence_version` is the verion you want to install. This is the only one varialble you need to change, the others are optional.
 
 `atlassian_confluence_baseurl` is the URL where you can find the *tar.gz* files. If you have your own mirror, change it.
 
@@ -49,30 +46,25 @@ Role Variables
       attribute: scheme
       value: https
 
-`atlassian_confluence_catalina_opts` is the list of custom *CATALINA_OPTS* properties. At this moment you can't change the existing one ;(
+`atlassian_confluence_catalina_opts` is the list of custom **CATALINA_OPTS** properties. At this moment you can't change the existing one ;(
 
 For *CrowdSSO* see `CrowdSSO.md`
 
-Dependencies
-------------
+## Dependencies
 
-This role depens on the `cmprescott.xml` role/library.
+This role depedns on the `cmprescott.xml` role/library.
 
-Example Playbook
-----------------
+## Example Playbook
 
     - hosts: atlassian
       roles:
          - cmprescott.xml
          - hudecof.atlassian-confluence
 
-License
--------
+## License
 
 BSD
 
-Author Information
-------------------
+## Author Information
 
 Peter Hudec
-CNC, a.s.
