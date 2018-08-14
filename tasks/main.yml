@@ -9,13 +9,7 @@
     - "os-{{ ansible_distribution }}.yml"
     - "os-{{ ansible_os_family }}.yml"
   tags:
-    - atlassian-confluence
-    - atlassian-confluence:packages
-    - atlassian-confluence:setup
-    - atlassian-confluence:install
-    - atlassian-confluence:config
-    - atlassian-confluence:crowd
-
+    - always
 
 - name: include package tasks
   include: packages-{{ ansible_os_family }}.yml
