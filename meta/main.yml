@@ -1,24 +1,26 @@
 ---
 galaxy_info:
+  role_name: atlassian-confluence
   author: Peter Hudec
   description: Install / upgrade Atlasssian Conflunce
-  company: CNC, a.s.
   license: BSD
   min_ansible_version: 2.1
   platforms:
-  - name: EL
-    versions:
-    - 6
-    - 7
-  - name: Ubuntu
-    versions:
-    - precise
-    - trusty
-  - name: Debian
-    versions:
-    - jessie
-    - stretch
-  categories:
-  - development
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+  galaxy_tags:
+    - development
+    - atlassian
+    - confluence
 dependencies:
   - cmprescott.xml
