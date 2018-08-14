@@ -24,7 +24,7 @@ provisioner:
     converge: playbook.yml
   inventory:
     links:
-      group_vars: ../../default/inventory/group_vars/
+      group_vars: ../default/inventory/group_vars/
   lint:
     name: ansible-lint
 scenario:
